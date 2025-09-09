@@ -26,6 +26,213 @@
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
 }
 
+.tittle {
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  background: linear-gradient(45deg, #00d9ff, #ff00c8, #00d9ff, #ff00c8);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite,
+    glow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 217, 255, 0.3),
+    0 0 30px rgba(0, 217, 255, 0.2);
+  padding: 1rem 2rem;
+  display: inline-block;
+}
+
+.tittle::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00d9ff, #ff00c8, #00d9ff, #ff00c8);
+  background-size: 300% 300%;
+  border-radius: 15px;
+  z-index: -1;
+  animation: gradientShift 3s ease infinite;
+  filter: blur(15px);
+  opacity: 0.7;
+}
+
+.tittle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #00d9ff, #ff00c8);
+  border-image-slice: 1;
+  border-radius: 12px;
+  background: rgba(10, 10, 18, 0.8);
+  z-index: -1;
+  box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.2),
+    inset 0 0 30px rgba(255, 0, 200, 0.1);
+}
+
+/* Animaciones */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5),
+      0 0 20px rgba(0, 217, 255, 0.3), 0 0 30px rgba(0, 217, 255, 0.2);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.7),
+      0 0 25px rgba(0, 217, 255, 0.5), 0 0 35px rgba(0, 217, 255, 0.3),
+      0 0 45px rgba(255, 0, 200, 0.4);
+  }
+}
+
+/* Efecto de scanlines */
+.tittle {
+  position: relative;
+  overflow: hidden;
+}
+
+.tittle:hover::before {
+  animation: gradientShift 3s ease infinite, scanline 2s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.tittle:hover::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(0, 217, 255, 0.2), transparent);
+  animation: scanline 2s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tittle {
+    font-size: 2.5rem;
+    padding: 0.8rem 1.5rem;
+    letter-spacing: 2px;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tittle {
+    font-size: 2rem;
+    padding: 0.6rem 1rem;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+  }
+}
+
+/* Variantes de color */
+.tittle.blue {
+  background: linear-gradient(45deg, #00d9ff, #0099cc, #00d9ff);
+}
+
+.tittle.blue::before {
+  background: linear-gradient(45deg, #00d9ff, #0099cc, #00d9ff);
+}
+
+.tittle.pink {
+  background: linear-gradient(45deg, #ff00c8, #cc0099, #ff00c8);
+}
+
+.tittle.pink::before {
+  background: linear-gradient(45deg, #ff00c8, #cc0099, #ff00c8);
+}
+
+.tittle.green {
+  background: linear-gradient(45deg, #00ff99, #00cc77, #00ff99);
+}
+
+.tittle.green::before {
+  background: linear-gradient(45deg, #00ff99, #00cc77, #00ff99);
+}
+
+/* Efecto de destello al cargar */
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.tittle {
+  animation: gradientShift 3s ease infinite,
+    glow 2s ease-in-out infinite alternate, flash 3s ease-in-out;
+}
+
+/* Efecto de vibración sutil */
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+.tittle:hover {
+  animation: gradientShift 3s ease infinite,
+    glow 2s ease-in-out infinite alternate, vibrate 0.3s ease infinite;
+}
+
+/* Bordes neón intermitentes */
+@keyframes borderPulse {
+  0%,
+  100% {
+    border-image-source: linear-gradient(45deg, #00d9ff, #ff00c8);
+    box-shadow: inset 0 0 20px rgba(0, 217, 255, 0.2),
+      inset 0 0 30px rgba(255, 0, 200, 0.1), 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+  50% {
+    border-image-source: linear-gradient(45deg, #ff00c8, #00d9ff);
+    box-shadow: inset 0 0 25px rgba(255, 0, 200, 0.3),
+      inset 0 0 35px rgba(0, 217, 255, 0.2), 0 0 25px rgba(255, 0, 200, 0.4);
+  }
+}
+
+.tittle::after {
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
 .navButton {
   background: rgba(0, 0, 0, 0.7);
   border: 2px solid #00d9ff;
@@ -568,4 +775,74 @@
 
 .page {
   animation: glow 3s ease-in-out infinite;
+}
+
+/* Indicadores de página */
+.pageIndicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  z-index: 10;
+}
+
+.pageIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #00d9ff;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pageIndicator:hover {
+  background: #00d9ff;
+  transform: scale(1.2);
+}
+
+.pageIndicator.active {
+  background: #ff00c8;
+  border-color: #ff00c8;
+  box-shadow: 0 0 10px rgba(255, 0, 200, 0.5);
+}
+
+/* Efectos de transición para cambio de página */
+.magazineContainer {
+  position: relative;
+  min-height: 600px;
+}
+
+.page {
+  animation: pageTransition 0.5s ease-in-out;
+}
+
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ajustes para el contenedor principal */
+.magazineSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Mejoras responsive */
+@media (max-width: 768px) {
+  .pageIndicators {
+    margin-top: 1.5rem;
+  }
+
+  .pageIndicator {
+    width: 10px;
+    height: 10px;
+  }
 }

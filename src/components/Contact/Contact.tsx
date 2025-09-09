@@ -58,7 +58,7 @@ export default function SocialLinks() {
       <div className={styles.plate}></div>
       <div className={styles.plate2}></div>
 
-      <div className={styles.content}>
+      <div id="contacto" className={styles.content}>
         <motion.h2
           className={styles.title}
           initial={{ opacity: 0, y: 20 }}

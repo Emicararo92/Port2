@@ -8,12 +8,11 @@ export default function AboutMe() {
   return (
     <section className={styles.about}>
       {/* Elementos decorativos de fondo */}
-      <div className={styles.plate}></div>
-      <div className={styles.plate2}></div>
 
       <div className={styles.content}>
         {/* Imagen que ocupa el 100% del alto */}
         <motion.div
+          id="about"
           className={styles.imageContainer}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}

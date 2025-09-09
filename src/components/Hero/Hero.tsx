@@ -40,13 +40,15 @@ export default function Hero2() {
           <div className={styles.tags}>
             <span className={styles.tag}>FullStack</span>
             <span className={styles.tag}>Frontend</span>
+            <span className={styles.tag}>WordPress</span>
+            <span className={styles.tag}>Diseño Web</span>
           </div>
 
           <div className={styles.buttons}>
-            <a href="#" className={styles.btnPrimary}>
+            <a href="#contacto" className={styles.btnPrimary}>
               Contacto
             </a>
-            <a href="#" className={styles.btnSecondary}>
+            <a href="#proyectos" className={styles.btnSecondary}>
               Proyectos
             </a>
           </div>

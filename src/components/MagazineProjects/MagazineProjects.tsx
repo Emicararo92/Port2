@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import HTMLFlipBook from "react-pageflip";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import styles from "../../styles/magazine.module.css";
 import {
@@ -15,14 +15,6 @@ import {
   FiImage,
 } from "react-icons/fi";
 
-// Tipos para react-pageflip
-type HTMLFlipBookType = typeof HTMLFlipBook & {
-  pageFlip: () => {
-    flipNext: () => void;
-    flipPrev: () => void;
-  };
-};
-
 interface Project {
   id: number;
   title: string;
@@ -34,71 +26,237 @@ interface Project {
   githubUrl: string;
 }
 
-interface PageFlipEvent {
-  data: number;
-}
-
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "PuntoCliente CRM",
     description:
-      "Plataforma de e-commerce completa con carrito de compras, pasarela de pago y panel administrativo. Desarrollada con React y Node.js, con énfasis en experiencia de usuario y rendimiento.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "CRM completo para gestión de clientes y vendedores, con estadísticas detalladas, formularios personalizados y control de actividades. Incluye dashboard interactivo y reportes en tiempo real.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "CSS Modules",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Supabase",
+      "Framer Motion",
+      "Chart.js",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365013/VideoCRMCONBELL_mqkybo.mp4",
     images: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1556742044-3c6d7b2ebc32?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1556742045-0cfed4f6a45d?w=300&h=200&fit=crop",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365236/Screenshot_2025-09-05_115650_rvqubh.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365237/Screenshot_2025-09-05_115638_okmc5i.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365267/Screenshot_2025-09-05_115623_ltw16e.png",
     ],
     liveUrl: "https://ecommerce-demo.com",
     githubUrl: "https://github.com/usuario/ecommerce",
   },
   {
     id: 2,
-    title: "WordPress Corporate Site",
+    title: "Conbell Web",
     description:
-      "Sitio corporativo desarrollado en WordPress con theme personalizado y plugins custom. Optimizado para SEO y rendimiento, con integración de CRM y analytics.",
-    technologies: ["WordPress", "PHP", "JavaScript", "CSS3"],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "Sitio corporativo moderno desarrollado en React, con librerías personalizadas y optimización SEO. Incluye integración de formularios de contacto, chat en vivo y diseño responsivo.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "CSS Modules",
+      "Node.js",
+      "Vercel",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365023/CONBELLVIDEOWEB_dcxq8v.mp4",
     images: [
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5e?w=300&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5f?w=300&h=200&fit=crop",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365365/Screenshot_2025-09-05_112907_pprbrb.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365364/Screenshot_2025-09-05_112918_lafeww.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365364/Screenshot_2025-09-05_112929_caknge.png",
     ],
     liveUrl: "https://corporate-site.com",
     githubUrl: "https://github.com/usuario/wordpress-theme",
   },
-  // Agrega los otros 5 proyectos aquí...
+  {
+    id: 3,
+    title: "Simma Wines",
+    description:
+      "Sitio corporativo para bodega, desarrollado en WordPress con theme personalizado y plugins a medida. Optimizado para SEO, con galerías de productos y reservas de catas online.",
+    technologies: [
+      "WordPress",
+      "Elementor",
+      "PHP",
+      "JavaScript",
+      "CSS",
+      "MySQL",
+      "ACF",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365007/SIMMA_wenjpa.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365373/Screenshot_2025-09-08_180208_uhyixq.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365373/Screenshot_2025-09-08_180217_wjqhqv.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365372/Screenshot_2025-09-08_180228_vrrdpo.png",
+    ],
+    liveUrl: "https://corporate-site.com",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
+  {
+    id: 4,
+    title: "TitanoMaquia Games",
+    description:
+      "Sitio web para estudio de videojuegos, desarrollado en React con librerías avanzadas de animación y multimedia. Optimizado para SEO y rendimiento, con integración de trailers y demos interactivas.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "CSS Modules",
+      "Three.js",
+      "Framer Motion",
+      "Node.js",
+      "Vercel",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365015/TITANO_wzbi1x.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365361/Screenshot_2025-09-05_113213_vlz634.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365360/Screenshot_2025-09-05_113232_wubwyw.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365360/Screenshot_2025-09-05_113222_xy0wy2.png",
+    ],
+    liveUrl: "https://corporate-site.com",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
+  {
+    id: 5,
+    title: "FutbolLink",
+    description:
+      "Plataforma web para gestión de empleo en fútbol, con registro de usuarios, bolsa de trabajo y seguimiento de interacciones entre jugadores, clubes y entrenadores.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "CSS Modules",
+      "Node.js",
+      "PostgreSQL",
+      "Supabase",
+      "Framer Motion",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365011/FUTLINK_r4uh4b.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365368/Screenshot_2025-09-05_112526_qgo9y2.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365370/Screenshot_2025-09-05_112505_mqftu6.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365369/Screenshot_2025-09-05_112517_cuwwgb.png",
+    ],
+    liveUrl: "https://www.futbolink.net/",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
+  {
+    id: 6,
+    title: "Calculadora de Viajes",
+    description:
+      "Aplicación web para calcular precios de envíos y transporte, con mapas interactivos y rutas optimizadas. Ideal para logística y planificación de viajes.",
+    technologies: [
+      "React",
+      "Next.js",
+      "Leaflet",
+      "Mapbox",
+      "Tailwind CSS",
+      "CSS Modules",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365007/ENVIOSREAL_bhtane.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365359/Screenshot_2025-09-05_113251_udsfgp.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365358/Screenshot_2025-09-05_113435_nuluie.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365356/Screenshot_2025-09-05_113443_ehdvqv.png",
+    ],
+    liveUrl: "https://corporate-site.com",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
+  {
+    id: 7,
+    title: "Me conviene?",
+    description:
+      "App web que ayuda a los usuarios a decidir la mejor opción de pago según sus necesidades. Calcula costos, compara opciones y sugiere alternativas de manera clara y rápida.",
+    technologies: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "CSS Modules",
+      "TypeScript",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1757443550/Dise%C3%B1o_sin_t%C3%ADtulo_rs8y1s.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365355/Screenshot_2025-09-05_113628_dncjxi.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365354/Screenshot_2025-09-05_113645_vrzs7c.png",
+    ],
+    liveUrl: "https://corporate-site.com",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
 ];
 
+// Animaciones para el efecto de página
+const pageVariants = {
+  initial: (direction: number) => ({
+    x: direction > 0 ? 1000 : -1000,
+    opacity: 0,
+    scale: 0.8,
+  }),
+  in: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+  },
+  out: (direction: number) => ({
+    x: direction > 0 ? -1000 : 1000,
+    opacity: 0,
+    scale: 0.8,
+  }),
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.5,
+};
+
 export default function ProjectsMagazine() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [[currentPage, direction], setCurrentPage] = useState([0, 0]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const flipBook = useRef<HTMLFlipBookType>(null);
+
+  const navigateTo = (newPage: number) => {
+    const newDirection = newPage > currentPage ? 1 : -1;
+    setCurrentPage([newPage, newDirection]);
+  };
 
   const nextPage = () => {
-    if (flipBook.current) {
-      flipBook.current.pageFlip().flipNext();
+    if (currentPage < projects.length - 1) {
+      navigateTo(currentPage + 1);
     }
   };
 
   const prevPage = () => {
-    if (flipBook.current) {
-      flipBook.current.pageFlip().flipPrev();
+    if (currentPage > 0) {
+      navigateTo(currentPage - 1);
     }
-  };
-
-  const handlePageChange = (e: PageFlipEvent) => {
-    setCurrentPage(e.data);
   };
 
   const openVideoInNewTab = (videoUrl: string) => {
     window.open(videoUrl, "_blank");
   };
 
+  const currentProject = projects[currentPage];
+
   return (
     <section className={styles.magazineSection}>
+      <h1 id="proyectos" className={styles.tittle}>Proyectos Recientes</h1>
       {/* Controles de navegación */}
       <div className={styles.controls}>
         <motion.button
@@ -112,7 +270,7 @@ export default function ProjectsMagazine() {
         </motion.button>
 
         <span className={styles.pageCounter}>
-          Página {currentPage + 1} de {projects.length}
+          Proyecto {currentPage + 1} de {projects.length}
         </span>
 
         <motion.button
@@ -126,139 +284,103 @@ export default function ProjectsMagazine() {
         </motion.button>
       </div>
 
-      {/* Revista */}
+      {/* Contenedor del proyecto actual con animación */}
       <div className={styles.magazineContainer}>
-        <HTMLFlipBook
-          ref={flipBook}
-          width={550}
-          height={700}
-          size="stretch"
-          minWidth={300}
-          maxWidth={550}
-          minHeight={500}
-          maxHeight={700}
-          maxShadowOpacity={0.5}
-          showCover={false}
-          onFlip={handlePageChange}
-          className={styles.flipBook}
-          style={{}}
-          startPage={0}
-          drawShadow={true}
-          flippingTime={1000}
-          usePortrait={true}
-          startZIndex={0}
-          autoSize={true}
-          clickEventForward={true}
-          useMouseEvents={true}
-          swipeDistance={30}
-          showPageCorners={false}
-          disableFlipByClick={false}
-          mobileScrollSupport={true}
-        >
-          {projects.map((project) => (
-            <div key={project.id} className={styles.page}>
-              <div className={styles.pageContent}>
-                {/* Lado izquierdo - Video */}
-                <div className={styles.leftPage}>
-                  <div className={styles.videoContainer}>
-                    {project.video.includes("youtube") ||
-                    project.video.includes("youtu.be") ? (
-                      <iframe
-                        src={project.video}
-                        className={styles.videoFrame}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title={project.title}
-                      />
-                    ) : (
-                      <video
-                        src={project.video}
-                        muted
-                        autoPlay
-                        loop
-                        className={styles.video}
-                        controls
-                      />
-                    )}
-
-                    <div className={styles.videoOverlay}>
-                      <button
-                        className={styles.watchFullButton}
-                        onClick={() => openVideoInNewTab(project.video)}
-                      >
-                        <FiYoutube /> Ver video completo
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Lado derecho - Contenido */}
-                <div className={styles.rightPage}>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
-
-                  <div className={styles.techStack}>
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className={styles.techTag}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className={styles.projectDescription}>
-                    {project.description}
-                  </p>
-
-                  <div className={styles.imageGallery}>
-                    {project.images.map((image, imageIndex) => (
-                      <motion.div
-                        key={imageIndex}
-                        className={styles.imageThumb}
-                        whileHover={{ scale: 1.05 }}
-                        onClick={() => setSelectedImage(image)}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${project.title} ${imageIndex + 1}`}
-                          width={100}
-                          height={75}
-                          style={{ objectFit: "cover" }}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://via.placeholder.com/100x75/0a0a12/00d9ff?text=Imagen+${
-                              imageIndex + 1
-                            }`;
-                          }}
-                        />
-                        <div className={styles.imageHover}>
-                          <FiImage />
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <div className={styles.projectLinks}>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.liveLink}
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentPage}
+            custom={direction}
+            variants={pageVariants}
+            initial="initial"
+            animate="in"
+            exit="out"
+            transition={{ type: "tween", ease: "anticipate", duration: 0.5 }}
+            className={styles.page}
+          >
+            <div className={styles.pageContent}>
+              {/* Lado izquierdo - Video */}
+              <div className={styles.leftPage}>
+                <div className={styles.videoContainer}>
+                  <video
+                    src={currentProject.video}
+                    muted
+                    autoPlay
+                    loop
+                    className={styles.video}
+                    controls
+                    preload="auto"
+                  />
+                  <div className={styles.videoOverlay}>
+                    <button
+                      className={styles.watchFullButton}
+                      onClick={() => openVideoInNewTab(currentProject.video)}
                     >
-                      <FiExternalLink /> Ver Live
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.githubLink}
-                    >
-                      <FiGithub /> Código
-                    </a>
+                      <FiYoutube /> Ver video completo
+                    </button>
                   </div>
                 </div>
               </div>
+
+              {/* Lado derecho - Contenido */}
+              <div className={styles.rightPage}>
+                <h3 className={styles.projectTitle}>{currentProject.title}</h3>
+
+                <div className={styles.techStack}>
+                  {currentProject.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <p className={styles.projectDescription}>
+                  {currentProject.description}
+                </p>
+
+                <div className={styles.imageGallery}>
+                  {currentProject.images.map((image, imageIndex) => (
+                    <motion.div
+                      key={imageIndex}
+                      className={styles.imageThumb}
+                      whileHover={{ scale: 1.05 }}
+                      onClick={() => setSelectedImage(image)}
+                    >
+                      <Image
+                        src={image}
+                        alt={`${currentProject.title} ${imageIndex + 1}`}
+                        width={100}
+                        height={75}
+                        style={{ objectFit: "cover" }}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://via.placeholder.com/100x75/0a0a12/00d9ff?text=Imagen+${
+                            imageIndex + 1
+                          }`;
+                        }}
+                      />
+                      <div className={styles.imageHover}>
+                        <FiImage />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
-        </HTMLFlipBook>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Indicadores de página */}
+      <div className={styles.pageIndicators}>
+        {projects.map((_, index) => (
+          <button
+            key={index}
+            className={`${styles.pageIndicator} ${
+              currentPage === index ? styles.active : ""
+            }`}
+            onClick={() => navigateTo(index)}
+          />
+        ))}
       </div>
 
       {/* Modal para imagen ampliada */}
