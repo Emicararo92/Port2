@@ -19,7 +19,7 @@ export default function AboutMe() {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src="https://res.cloudinary.com/diefdex1h/image/upload/v1757362457/portimg1_bpg921.jpg" // Reemplaza con tu imagen
+            src="https://res.cloudinary.com/diefdex1h/image/upload/v1757362457/portimg1_bpg921.jpg"
             alt="Emiliano - Desarrollador"
             fill
             className={styles.image}

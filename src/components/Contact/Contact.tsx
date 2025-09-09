@@ -16,38 +16,38 @@ export default function SocialLinks() {
     {
       name: "Instagram",
       icon: <FiInstagram />,
-      url: "https://instagram.com/tu_usuario",
+      url: "https://instagram.com/emicararo",
       color: "#E1306C",
     },
     {
       name: "LinkedIn",
       icon: <FiLinkedin />,
-      url: "https://linkedin.com/in/tu_usuario",
+      url: "https://www.linkedin.com/in/emilianocararo",
       color: "#0077B5",
     },
     {
       name: "GitHub",
       icon: <FiGithub />,
-      url: "https://github.com/tu_usuario",
+      url: "https://github.com/Emicararo92",
       color: "#ffffff",
     },
     {
       name: "Descargar CV",
       icon: <FiDownload />,
-      url: "/cv-emiliano-cararo.pdf",
+      url: "https://publuu.com/flip-book/965375/2119434",
       color: "#00d9ff",
       download: true,
     },
     {
       name: "Teléfono",
       icon: <FiPhone />,
-      url: "tel:+5491112345678",
+      url: "https://w.app/o80rwe",
       color: "#25D366",
     },
     {
       name: "Email",
       icon: <FiMail />,
-      url: "mailto:emiliano@ejemplo.com",
+      url: "mailto:emicararo92@gmail.com",
       color: "#FF00C8",
     },
   ];
@@ -106,21 +106,6 @@ export default function SocialLinks() {
         </div>
 
         {/* Información de contacto adicional */}
-        <motion.div
-          className={styles.contactInfo}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className={styles.infoItem}>
-            <FiPhone className={styles.infoIcon} />
-            <span>+54 9 11 1234-5678</span>
-          </div>
-          <div className={styles.infoItem}>
-            <FiMail className={styles.infoIcon} />
-            <span>emiliano@ejemplo.com</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
