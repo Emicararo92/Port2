@@ -76,7 +76,7 @@ export default function AboutMe() {
               <span className={styles.statLabel}>Años de Experiencia</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statNumber}>50+</span>
+              <span className={styles.statNumber}>30+</span>
               <span className={styles.statLabel}>Proyectos Completados</span>
             </div>
             <div className={styles.stat}>
