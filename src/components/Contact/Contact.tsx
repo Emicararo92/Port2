@@ -6,7 +6,6 @@ import {
   FiInstagram,
   FiLinkedin,
   FiGithub,
-  FiDownload,
   FiPhone,
   FiMail,
 } from "react-icons/fi";
@@ -31,17 +30,11 @@ export default function SocialLinks() {
       url: "https://github.com/Emicararo92",
       color: "#ffffff",
     },
-    {
-      name: "Descargar CV",
-      icon: <FiDownload />,
-      url: "https://publuu.com/flip-book/965375/2119434",
-      color: "#00d9ff",
-      download: true,
-    },
+
     {
       name: "Teléfono",
       icon: <FiPhone />,
-      url: "https://w.app/o80rwe",
+      url: "https://wa.me/543515174441",
       color: "#25D366",
     },
     {
@@ -84,11 +77,6 @@ export default function SocialLinks() {
               key={index}
               href={link.url}
               className={styles.socialLink}
-              target={link.download ? "_blank" : "_blank"}
-              rel={
-                link.download ? "noopener noreferrer" : "noopener noreferrer"
-              }
-              download={link.download}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

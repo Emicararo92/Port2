@@ -7,10 +7,6 @@ import styles from "../../styles/about.module.css";
 export default function AboutMe() {
   return (
     <section className={styles.about}>
-      {/* Elementos decorativos */}
-      <div className={styles.plate}></div>
-      <div className={styles.plate2}></div>
-
       <div className={styles.content}>
         {/* Imagen */}
         <motion.div
@@ -24,7 +20,6 @@ export default function AboutMe() {
             alt="Emiliano - Desarrollador"
             fill
             className={styles.image}
-            priority
           />
           <div className={styles.imageOverlay}></div>
         </motion.div>
@@ -56,19 +51,19 @@ export default function AboutMe() {
               <span className={styles.accent}>
                 aplicaciones que resuelvan problemas reales
               </span>{" "}
-              y{" "}
+              y
               <span className={styles.accent}>
+                {" "}
                 diseñar experiencias web completas
               </span>{" "}
-              que marquen la diferencia. Cada línea de código es una oportunidad
-              para innovar y mejorar la vida de las personas.
+              que marquen la diferencia.
             </p>
 
             <p>
-              Cuando no estoy frente al código, me encontrarás
-              <span className={styles.accent}> jugando al fútbol</span>,
-              compartiendo momentos con
-              <span className={styles.accent}> amigos</span> o disfrutando del
+              Cuando no estoy frente al código, me encontrarás{" "}
+              <span className={styles.accent}>jugando al fútbol</span>,
+              compartiendo momentos con{" "}
+              <span className={styles.accent}>amigos</span> o disfrutando del
               tiempo en
               <span className={styles.accent}> familia</span>.
             </p>
@@ -81,7 +76,7 @@ export default function AboutMe() {
               <span className={styles.statLabel}>Años de Experiencia</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statNumber}>30+</span>
+              <span className={styles.statNumber}>50+</span>
               <span className={styles.statLabel}>Proyectos Completados</span>
             </div>
             <div className={styles.stat}>
