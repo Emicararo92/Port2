@@ -158,44 +158,71 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Calculadora de Viajes",
+    title: "Julio Vanoli",
     description:
-      "Aplicación web para calcular precios de envíos y transporte, con mapas interactivos y rutas optimizadas. Ideal para logística y planificación de viajes.",
+      "Plataforma web para distribuidora mayorista de indumentaria, enfocada en ventas al por mayor. Incluye catálogo dinámico, sistema de consultas rápidas, integración con redes sociales y diseño responsivo para maximizar alcance comercial.",
     technologies: [
-      "React",
-      "Next.js",
-      "Leaflet",
-      "Mapbox",
-      "Tailwind CSS",
-      "CSS Modules",
+      "WordPress",
+      "Elementor",
+      "WordFence",
+      "Join WP",
+      "CSS",
+      "PHP",
+      "HTML",
     ],
     video:
-      "https://res.cloudinary.com/diefdex1h/video/upload/v1757365007/ENVIOSREAL_bhtane.mp4",
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709748/JV_ez6a2g.mp4",
     images: [
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365359/Screenshot_2025-09-05_113251_udsfgp.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365358/Screenshot_2025-09-05_113435_nuluie.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365356/Screenshot_2025-09-05_113443_ehdvqv.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710079/Screenshot_2025-10-17_110436_mcxpuq.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110504_ssgqcl.png",
     ],
     liveUrl: "https://corporate-site.com",
     githubUrl: "https://github.com/usuario/wordpress-theme",
   },
   {
     id: 7,
-    title: "Me conviene?",
+    title: "Luxury",
     description:
-      "App web que ayuda a los usuarios a decidir la mejor opción de pago según sus necesidades. Calcula costos, compara opciones y sugiere alternativas de manera clara y rápida.",
+      "Plataforma web para empresa de transporte corporativo y turístico. Permite gestionar reservas, mostrar rutas y servicios, y conectar con clientes de forma rápida y clara. Incluye mapas interactivos, integración con formularios personalizados y diseño moderno optimizado para móviles.",
     technologies: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "CSS Modules",
-      "TypeScript",
+      "WordPress",
+      "Elementor",
+      "WordFence",
+      "Contact Form",
+      "Join WP",
+      "CSS",
+      "PHP",
+      "HTML",
     ],
     video:
-      "https://res.cloudinary.com/diefdex1h/video/upload/v1757443550/Dise%C3%B1o_sin_t%C3%ADtulo_rs8y1s.mp4",
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709730/LUX_oddke2.mp4",
     images: [
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365355/Screenshot_2025-09-05_113628_dncjxi.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1757365354/Screenshot_2025-09-05_113645_vrzs7c.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110600_vdjgfv.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110619_jwoiwj.png",
+    ],
+    liveUrl: "https://corporate-site.com",
+    githubUrl: "https://github.com/usuario/wordpress-theme",
+  },
+  {
+    id: 7,
+    title: "Valle del Rahue - Cooming Soon",
+    description:
+      "Ecommerce para una marca de jugos naturales y productos saludables. Desarrollado con enfoque en una experiencia de compra fluida, diseño limpio y storytelling de marca. Contará con carrito de compras, pasarela de pagos integrada y secciones informativas sobre los productos.",
+    technologies: [
+      "WordPress",
+      "Elementor",
+      "WordFence",
+      "Contact Form",
+      "Join WP",
+      "CSS",
+      "PHP",
+      "HTML",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709735/Valle_oaaglk.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710077/Screenshot_2025-10-17_110709_uttcyu.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710077/Screenshot_2025-10-17_110736_zuo3nh.png",
     ],
     liveUrl: "https://corporate-site.com",
     githubUrl: "https://github.com/usuario/wordpress-theme",
@@ -256,7 +283,9 @@ export default function ProjectsMagazine() {
 
   return (
     <section className={styles.magazineSection}>
-      <h1 id="proyectos" className={styles.tittle}>Proyectos Recientes</h1>
+      <h1 id="proyectos" className={styles.tittle}>
+        Proyectos Recientes
+      </h1>
       {/* Controles de navegación */}
       <div className={styles.controls}>
         <motion.button
