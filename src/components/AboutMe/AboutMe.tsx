@@ -17,7 +17,7 @@ export default function AboutMe() {
         >
           <Image
             src="https://res.cloudinary.com/diefdex1h/image/upload/v1757362457/portimg1_bpg921.jpg"
-            alt="Emiliano - Desarrollador"
+            alt="Emiliano - Especialista WordPress y Elementor"
             fill
             className={styles.image}
           />
@@ -37,35 +37,48 @@ export default function AboutMe() {
 
           <div className={styles.description}>
             <p>
-              <span className={styles.highlight}>Soy Emiliano</span>, un
-              apasionado desarrollador con
+              <span className={styles.highlight}>Soy Emiliano</span>,
+              especialista en
               <span className={styles.accent}>
                 {" "}
-                más de 2 años y medio de experiencia
-              </span>{" "}
-              en el mundo digital.
+                WordPress y Elementor
+              </span>
+              , con
+              <span className={styles.accent}>
+                {" "}
+                3 años de experiencia   
+              </span>
+               creando y optimizando sitios web profesionales.
             </p>
 
             <p>
-              Mi misión es crear{" "}
-              <span className={styles.accent}>
-                aplicaciones que resuelvan problemas reales
-              </span>{" "}
-              y
+              Trabajo enfocado en
               <span className={styles.accent}>
                 {" "}
-                diseñar experiencias web completas
-              </span>{" "}
-              que marquen la diferencia.
+                rendimiento, SEO y experiencia de usuario
+              </span>
+              , desarrollando sitios administrables, escalables y preparados
+              para cumplir con
+              <span className={styles.accent}>
+                {" "}
+                Core Web Vitals y PageSpeed
+              </span>
+              .
             </p>
 
             <p>
-              Cuando no estoy frente al código, me encontrarás{" "}
-              <span className={styles.accent}>jugando al fútbol</span>,
-              compartiendo momentos con{" "}
-              <span className={styles.accent}>amigos</span> o disfrutando del
-              tiempo en
-              <span className={styles.accent}> familia</span>.
+              Tengo experiencia en
+              <span className={styles.accent}>
+                {" "}
+                WooCommerce, mantenimiento WordPress
+              </span>
+              , optimización técnica, mejoras continuas y resolución de
+              problemas comunes como
+              <span className={styles.accent}>
+                {" "}
+                errores SEO, rendimiento y estructura
+              </span>
+              .
             </p>
           </div>
 
@@ -73,15 +86,15 @@ export default function AboutMe() {
           <div className={styles.stats}>
             <div className={styles.stat}>
               <span className={styles.statNumber}>2.5+</span>
-              <span className={styles.statLabel}>Años de Experiencia</span>
+              <span className={styles.statLabel}>Años en WordPress</span>
             </div>
             <div className={styles.stat}>
               <span className={styles.statNumber}>30+</span>
-              <span className={styles.statLabel}>Proyectos Completados</span>
+              <span className={styles.statLabel}>Sitios y Proyectos</span>
             </div>
             <div className={styles.stat}>
               <span className={styles.statNumber}>100%</span>
-              <span className={styles.statLabel}>Comprometido</span>
+              <span className={styles.statLabel}>Foco en Performance</span>
             </div>
           </div>
         </motion.div>

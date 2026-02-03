@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Home, Briefcase, Cpu, User, Mail } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import styles from "../../styles/Navbar.module.css";
 
 export default function Navbar() {
@@ -12,96 +12,136 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLinkClick = () => {
+    setMobileOpen(false);
+  };
+
+  const navItems = [
+    { label: "Inicio", href: "#hero" },
+    { label: "Proyectos", href: "#proyectos" },
+    { label: "Tecnologías", href: "#tecnologia" },
+    { label: "Sobre mí", href: "#about" },
+  ];
+
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
-        {/* Logo - Solo Icono */}
-        <Link href="#hero" className={styles.logo}>
-          <Image
-            src="https://res.cloudinary.com/diefdex1h/image/upload/v1757444936/Screenshot_2025-09-09_160842_xuc53r.png"
-            alt="Logo"
-            width={40}
-            height={40}
-            className={styles.logoImage}
-          />
-        </Link>
+    <>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.container}>
+          {/* Logo */}
+          <Link href="#hero" className={styles.logo} onClick={handleLinkClick}>
+            <div className={styles.logoWrapper}>
+              <div className={styles.logoImageContainer}>
+                <Image
+                  src="https://res.cloudinary.com/diefdex1h/image/upload/v1757444936/Screenshot_2025-09-09_160842_xuc53r.png"
+                  alt="Emiliano Cararo"
+                  width={42}
+                  height={42}
+                  className={styles.logoImage}
+                  priority
+                />
+                <div className={styles.logoGlow} />
+              </div>
+              <span className={styles.logoText}>
+                <span className={styles.logoName}>Emiliano</span>
+                <span className={styles.logoLastName}>Cararo</span>
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop Links - Solo Iconos */}
-        <div className={styles.desktopLinks}>
-          <Link href="#hero" className={styles.navLink}>
-            <Home size={20} />
-          </Link>
-          <Link href="#proyectos" className={styles.navLink}>
-            <Briefcase size={20} />
-          </Link>
-          <Link href="#tecnologia" className={styles.navLink}>
-            <Cpu size={20} />
-          </Link>
-          <Link href="#about" className={styles.navLink}>
-            <User size={20} />
-          </Link>
-          <Link href="#contacto" className={styles.navLink}>
-            <Mail size={20} />
-          </Link>
-        </div>
+          {/* Desktop Navigation */}
+          <div className={styles.desktopNav}>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={styles.navLink}
+                onClick={handleLinkClick}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="#contacto"
+              className={styles.contactButton}
+              onClick={handleLinkClick}
+            >
+              <span className={styles.buttonText}>Contacto</span>
+              <MessageCircle size={16} className={styles.buttonIcon} />
+            </Link>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className={styles.mobileMenuButton}>
+          {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
             className={styles.menuButton}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? (
+              <X size={22} strokeWidth={1.5} />
+            ) : (
+              <Menu size={22} strokeWidth={1.5} />
+            )}
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu - Solo Iconos */}
-      {mobileOpen && (
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`${styles.mobileOverlay} ${mobileOpen ? styles.open : ""}`}
+      >
         <div className={styles.mobileMenu}>
-          <Link
-            href="#hero"
-            className={styles.mobileLink}
-            onClick={() => setMobileOpen(false)}
-          >
-            <Home size={24} />
-          </Link>
-          <Link
-            href="#proyectos"
-            className={styles.mobileLink}
-            onClick={() => setMobileOpen(false)}
-          >
-            <Briefcase size={24} />
-          </Link>
-          <Link
-            href="#tecnologia"
-            className={styles.mobileLink}
-            onClick={() => setMobileOpen(false)}
-          >
-            <Cpu size={24} />
-          </Link>
-          <Link
-            href="#about"
-            className={styles.mobileLink}
-            onClick={() => setMobileOpen(false)}
-          >
-            <User size={24} />
-          </Link>
-          <Link
-            href="#contacto"
-            className={styles.mobileLink}
-            onClick={() => setMobileOpen(false)}
-          >
-            <Mail size={24} />
-          </Link>
+          <div className={styles.mobileHeader}>
+            <div className={styles.mobileLogo}>
+              <Image
+                src="https://res.cloudinary.com/diefdex1h/image/upload/v1757444936/Screenshot_2025-09-09_160842_xuc53r.png"
+                alt="Logo"
+                width={36}
+                height={36}
+              />
+              <span>Emiliano Cararo</span>
+            </div>
+            <button
+              className={styles.closeButton}
+              onClick={() => setMobileOpen(false)}
+              aria-label="Cerrar menú"
+            >
+              <X size={22} />
+            </button>
+          </div>
+
+          <div className={styles.mobileLinks}>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={styles.mobileLink}
+                onClick={handleLinkClick}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="#contacto"
+              className={styles.mobileContact}
+              onClick={handleLinkClick}
+            >
+              Contacto
+            </Link>
+          </div>
+
+          <div className={styles.mobileFooter}>
+            <p className={styles.footerText}>
+              Especialista WordPress & Elementor
+            </p>
+          </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </>
   );
 }

@@ -10,6 +10,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-lg: 8px;
+  --radius-md: 6px;
+  --radius-sm: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +25,25 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-sans),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Suavizar scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remover estilos por defecto de botones */
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }

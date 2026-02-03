@@ -1,58 +1,62 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import styles from "../../styles/hero.module.css";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
-export default function Hero2() {
+export default function Hero() {
   return (
-    <section className={styles.hero}>
-      {/* Placas decorativas */}
-      <div className={`${styles.plate} ${styles.plate1}`} />
-      <div className={`${styles.plate} ${styles.plate2}`} />
-
+    <section className={styles.hero} id="hero">
       <div className={styles.content}>
         {/* Bloque de descripción */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className={styles.description}
-        >
-          Conecto mi realidad con lo digital: pienso, creo, escucho y mejoro. Me
-          gusta hacer cosas útiles y ayudar a la gente, siempre buscando la
-          forma más simple de lograrlo. Y simple no significa que no pueda ser
-          bello; al fin y al cabo, todo entra por los ojos. ¡Gracias por pasar
-          por acá! En este espacio vas a poder conocer mis tecnologías, ver
-          algunos de mis proyectos y descubrir un poco más sobre mí
-        </motion.div>
-
-        {/* Bloque de detalles */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           className={styles.details}
         >
-          <h1 className={styles.name}>Emiliano Cararo</h1>
-          <h2 className={styles.role}>Diseñador & Desarrollador Web</h2>
+          <div>
+            <h1 className={styles.name}>Emiliano Cararo</h1>
+            <h2 className={styles.role}>Especialista WordPress & Elementor</h2>
+          </div>
 
           <div className={styles.tags}>
-            <span className={styles.tag}>FullStack</span>
-            <span className={styles.tag}>Frontend</span>
             <span className={styles.tag}>WordPress</span>
-            <span className={styles.tag}>Diseño Web</span>
+            <span className={styles.tag}>Elementor Pro</span>
+            <span className={styles.tag}>WooCommerce</span>
+            <span className={styles.tag}>SEO & Performance</span>
           </div>
 
           <div className={styles.buttons}>
             <a href="#contacto" className={styles.btnPrimary}>
-              Contacto
+              Contactar ahora
+              <ArrowRight size={18} />
             </a>
             <a href="#proyectos" className={styles.btnSecondary}>
-              Proyectos
+              Ver proyectos
+              <ChevronDown size={18} />
             </a>
           </div>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className={styles.description}
+        >
+          <p>
+            Diseño, optimizo y mantengo sitios <strong>WordPress</strong> con{" "}
+            <strong>Elementor</strong>, enfocados en{" "}
+            <strong>rendimiento, SEO y experiencia de usuario</strong>.
+          </p>
+          <br />
+          <p>
+            Trabajo con sitios reales, pensados para convertir, posicionar y
+            escalar sin problemas.
+          </p>
+        </motion.div>
+
+        {/* Bloque de detalles */}
       </div>
     </section>
   );
