@@ -24,64 +24,22 @@ interface Project {
 
 const projects: Project[] = [
   // ======================
-  // WORDPRESS / ELEMENTOR
+  // WORDPRESS / ELEMENTOR (Prioridad principal)
   // ======================
 
   {
-    id: 6,
-    title: "Julio Vanoli",
-    description:
-      "Plataforma WordPress para distribuidora mayorista de indumentaria. Catálogo dinámico, contacto directo por WhatsApp y diseño optimizado para conversión.",
-    technologies: [
-      "WordPress",
-      "Elementor",
-      "WooCommerce",
-      "WordFence",
-      "PHP",
-      "CSS",
-      "HTML",
-    ],
-    video:
-      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709748/JV_ez6a2g.mp4",
-    images: [
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710079/Screenshot_2025-10-17_110436_mcxpuq.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110504_ssgqcl.png",
-    ],
-  },
-  {
-    id: 7,
-    title: "Luxury Transport",
-    description:
-      "Sitio WordPress para empresa de transporte corporativo y turístico. Gestión de servicios, formularios personalizados y diseño mobile-first.",
-    technologies: [
-      "WordPress",
-      "Elementor",
-      "Contact Form",
-      "Join Chat",
-      "PHP",
-      "CSS",
-      "HTML",
-    ],
-    video:
-      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709730/LUX_oddke2.mp4",
-    images: [
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110600_vdjgfv.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110619_jwoiwj.png",
-    ],
-  },
-  {
-    id: 3,
+    id: 1,
     title: "Simma Wines",
     description:
-      "Sitio corporativo para bodega, desarrollado en WordPress con Elementor y plugins personalizados. Optimizado para SEO, con galerías de productos y sistema de reservas para catas.",
+      "Sitio corporativo completo para bodega de vinos, desarrollado en WordPress con Elementor Pro. Implementación de sistema de reservas para catas, galerías de productos interactivas y optimización SEO avanzada. Diseño elegante que refleja la identidad premium de la marca.",
     technologies: [
       "WordPress",
-      "Elementor",
-      "ACF",
-      "PHP",
-      "JavaScript",
-      "CSS",
-      "MySQL",
+      "Elementor Pro",
+      "Advanced Custom Fields",
+      "WooCommerce",
+      "Optimización SEO",
+      "Optimización de Performance",
+      "Diseño Responsive",
     ],
     video:
       "https://res.cloudinary.com/diefdex1h/video/upload/v1757365007/SIMMA_wenjpa.mp4",
@@ -92,17 +50,102 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 8,
-    title: "Valle del Rahue (Coming Soon)",
+    id: 2,
+    title: "Luxury Transport",
     description:
-      "Ecommerce WordPress para marca de jugos naturales. Enfoque en storytelling, experiencia de compra y futura integración de pagos online.",
+      "Plataforma WordPress para empresa de transporte ejecutivo y turístico de alta gama. Implementación de formularios de reserva personalizados, sistema de cotización en tiempo real y diseño mobile-first optimizado para conversión. Integración con WhatsApp Business para atención inmediata.",
     technologies: [
       "WordPress",
-      "Elementor",
+      "Elementor Pro",
+      "Contact Form 7",
+      "Integración WhatsApp",
+      "Diseño Mobile-First",
+      "Optimización de Performance",
+      "Seguridad WordPress",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1770136979/TLA_xebjc9.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136974/Screenshot_2026-02-03_134208_m6socw.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136976/Screenshot_2026-02-03_134134_nva04a.png",
+    ],
+  },
+  {
+    id: 3,
+    title: "Julio Vanoli",
+    description:
+      "E-commerce WordPress para distribuidora mayorista de indumentaria. Implementación de catálogo dinámico con filtros avanzados, integración directa con WhatsApp para pedidos y sistema de gestión de inventario. Diseño optimizado para conversión y velocidad de carga.",
+    technologies: [
+      "WordPress",
+      "Elementor Pro",
       "WooCommerce",
-      "PHP",
-      "CSS",
-      "HTML",
+      "WhatsApp Commerce",
+      "Gestión de Catálogo",
+      "Wordfence Security",
+      "Optimización de Cache",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1760709748/JV_ez6a2g.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710079/Screenshot_2025-10-17_110436_mcxpuq.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1760710078/Screenshot_2025-10-17_110504_ssgqcl.png",
+    ],
+  },
+  {
+    id: 4,
+    title: "Metele Más Diseño",
+    description:
+      "Tienda online WordPress para marca de indumentaria personalizada y estampados. Implementación de sistema de personalización de productos, integración con métodos de pago locales y diseño visual impactante. Optimización para Core Web Vitals y experiencia de usuario móvil.",
+    technologies: [
+      "WordPress",
+      "Elementor Pro",
+      "WooCommerce",
+      "Personalización de Productos",
+      "Smart Slider 3",
+      "Integración de Pagos",
+      "Optimización UX/UI",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1770137004/MMD_npkkdl.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770137002/Screenshot_2026-02-03_113139_k3cnr3.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136999/Screenshot_2026-02-03_113205_oc01wv.png",
+    ],
+  },
+  {
+    id: 5,
+    title: "Paso Urbano",
+    description:
+      "E-commerce WordPress para marca emergente de zapatillas urbanas. Implementación de catálogo visual atractivo, sistema de tallas y guía de medidas, y optimización para motores de búsqueda. Preparación para futura integración de pagos online y logística de envíos.",
+    technologies: [
+      "WordPress",
+      "Elementor Pro",
+      "WooCommerce",
+      "Rank Math SEO",
+      "Variantes de Producto",
+      "Página Coming Soon",
+      "Optimización Pre-lanzamiento",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1770137021/PU_txk03s.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770137021/Screenshot_2026-02-03_114338_vidlts.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770137021/Screenshot_2026-02-03_114253_lj4vnh.png",
+    ],
+  },
+  {
+    id: 6,
+    title: "Valle del Rahue",
+    description:
+      "E-commerce WordPress para marca de jugos naturales y alimentos saludables. Enfoque en storytelling de marca, experiencia de compra intuitiva y preparación para integración de pagos online. Diseño que comunica frescura y naturalidad del producto.",
+    technologies: [
+      "WordPress",
+      "Elementor Pro",
+      "WooCommerce",
+      "Storytelling de Marca",
+      "Fotografía de Producto",
+      "Optimización de Checkout",
+      "Estrategia Coming Soon",
     ],
     video:
       "https://res.cloudinary.com/diefdex1h/video/upload/v1760709735/Valle_oaaglk.mp4",
@@ -112,18 +155,46 @@ const projects: Project[] = [
     ],
   },
 
+  // ======================
+  // REACT / NEXT.JS (Desarrollo moderno)
+  // ======================
+
   {
-    id: 1,
+    id: 7,
+    title: "Puni Delivery",
+    description:
+      "Aplicación web corporativa para empresa de cadetería on-demand. Desarrollo completo con React y Next.js, incluyendo sistema de cotización en tiempo real, panel de administración y chatbot integrado. Optimización para velocidad y experiencia de usuario móvil.",
+    technologies: [
+      "React",
+      "Next.js 14",
+      "TypeScript",
+      "Supabase",
+      "EmailJS",
+      "Integración Chatbot",
+      "Actualizaciones Tiempo Real",
+      "Optimización Móvil",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1770137016/Puni_yhyqm0.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770137010/Screenshot_2026-02-03_113517_g7mtvy.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770137009/Screenshot_2026-02-03_113500_lxqgep.png",
+    ],
+  },
+  {
+    id: 8,
     title: "PuntoCliente CRM",
     description:
-      "CRM desarrollado con React y Next.js para gestión de clientes, estadísticas y reportes en tiempo real.",
+      "Sistema de gestión de relaciones con clientes desarrollado desde cero. Panel de control con estadísticas en tiempo real, gestión de contactos, seguimiento de ventas y generación de reportes automatizados. Arquitectura escalable y seguridad empresarial.",
     technologies: [
       "React",
       "Next.js",
       "TypeScript",
       "Supabase",
       "PostgreSQL",
+      "Chart.js",
       "Framer Motion",
+      "Acceso por Roles",
     ],
     video:
       "https://res.cloudinary.com/diefdex1h/video/upload/v1757365013/VideoCRMCONBELL_mqkybo.mp4",
@@ -134,11 +205,20 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 9,
     title: "Conbell Web",
     description:
-      "Sitio corporativo desarrollado en React con foco en diseño, animaciones y performance.",
-    technologies: ["React", "Next.js", "TypeScript", "Framer Motion", "Vercel"],
+      "Sitio corporativo moderno desarrollado con React y Next.js. Implementación de animaciones fluidas con Framer Motion, diseño responsive avanzado y optimización de performance para Core Web Vitals. Arquitectura componentizada y SEO técnico.",
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Hosting Vercel",
+      "Optimización de Performance",
+      "SEO Técnico",
+    ],
     video:
       "https://res.cloudinary.com/diefdex1h/video/upload/v1757365023/CONBELLVIDEOWEB_dcxq8v.mp4",
     images: [
