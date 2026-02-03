@@ -2,7 +2,7 @@
 
 .technologies {
   padding: 5rem 1.5rem;
-  background: linear-gradient(180deg, #fafcff 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #5b98f4 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
 }
@@ -37,7 +37,7 @@
 
 .subtitle {
   text-align: center;
-  color: #718096;
+  color: #3e4652;
   max-width: 600px;
   margin: 0 auto 3.5rem;
   font-size: 1.125rem;
@@ -98,7 +98,7 @@
   border-radius: 12px;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #4a5568;
+  color: #000000;
   cursor: pointer;
   transition: all 0.25s ease;
   backdrop-filter: blur(4px);
@@ -108,16 +108,16 @@
 }
 
 .categoryButton:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(233, 233, 233, 0.642);
   border-color: rgba(147, 197, 253, 0.4);
   transform: translateY(-2px);
   color: #2d3748;
 }
 
 .categoryButton.active {
-  background: rgba(147, 197, 253, 0.15);
-  border-color: rgba(147, 197, 253, 0.5);
-  color: #2d6bb0;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgb(255, 255, 255);
+  color: #225187;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(147, 197, 253, 0.1);
 }
