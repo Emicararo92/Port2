@@ -30,51 +30,51 @@ const techCategories = [
   {
     id: "wordpress",
     name: "WordPress",
-    color: "#93c5fd", // Azul pastel
+    color: "#93c5fd",
     iconColor: "#21759B",
     icon: <SiWordpress />,
     technologies: [
       { name: "WordPress Core", icon: <SiWordpress /> },
-      { name: "Custom Post Types", icon: <SiWordpress /> },
+      { name: "Tipos de contenido personalizados", icon: <SiWordpress /> },
       { name: "WooCommerce", icon: <SiWoocommerce /> },
       { name: "SEO On-Page", icon: <SiWordpress /> },
       { name: "SEO Técnico", icon: <SiWordpress /> },
-      { name: "Plugin Development", icon: <SiWordpress /> },
+      { name: "Desarrollo de plugins", icon: <SiWordpress /> },
     ],
   },
   {
     id: "elementor",
     name: "Elementor",
-    color: "#c4b5fd", // Lila pastel
+    color: "#c4b5fd",
     iconColor: "#92003B",
     icon: <SiElementor />,
     technologies: [
       { name: "Elementor Pro", icon: <SiElementor /> },
-      { name: "Theme Builder", icon: <SiElementor /> },
-      { name: "Responsive Design", icon: <SiElementor /> },
-      { name: "Performance", icon: <SiElementor /> },
-      { name: "Custom Layouts", icon: <SiElementor /> },
-      { name: "Optimización", icon: <SiElementor /> },
+      { name: "Constructor de temas", icon: <SiElementor /> },
+      { name: "Diseño responsive", icon: <SiElementor /> },
+      { name: "Optimización de rendimiento", icon: <SiElementor /> },
+      { name: "Maquetación personalizada", icon: <SiElementor /> },
+      { name: "Optimización general", icon: <SiElementor /> },
     ],
   },
   {
     id: "seo",
-    name: "SEO & Performance",
-    color: "#86efac", // Verde menta pastel
+    name: "SEO y Rendimiento",
+    color: "#86efac",
     iconColor: "#00C853",
     icon: <SiPagespeedinsights />,
     technologies: [
       { name: "Core Web Vitals", icon: <SiPagespeedinsights /> },
       { name: "PageSpeed Insights", icon: <SiPagespeedinsights /> },
-      { name: "Optimización Web", icon: <SiPagespeedinsights /> },
+      { name: "Optimización web", icon: <SiPagespeedinsights /> },
       { name: "SEO Local", icon: <SiGoogle /> },
-      { name: "Mobile Optimization", icon: <SiPagespeedinsights /> },
+      { name: "Optimización mobile", icon: <SiPagespeedinsights /> },
     ],
   },
   {
     id: "diseno",
-    name: "Diseño & Edición",
-    color: "#f9a8d4", // Rosa pastel
+    name: "Diseño y Edición",
+    color: "#f9a8d4",
     iconColor: "#7c3aed",
     icon: <FaPalette />,
     technologies: [
@@ -82,27 +82,27 @@ const techCategories = [
       { name: "Canva", icon: <SiCanva /> },
       { name: "CapCut", icon: <FaCut /> },
       { name: "OBS Studio", icon: <SiObsstudio /> },
-      { name: "Edición Básica Video", icon: <FaVideo /> },
-      { name: "Diseño UI/UX", icon: <FaPalette /> },
+      { name: "Edición básica de video", icon: <FaVideo /> },
+      { name: "Diseño UI / UX", icon: <FaPalette /> },
     ],
   },
   {
     id: "analitica",
     name: "Analítica",
-    color: "#fdba74", // Durazno pastel
+    color: "#fdba74",
     iconColor: "#FF6F00",
     icon: <SiGoogleanalytics />,
     technologies: [
       { name: "Google Analytics 4", icon: <SiGoogleanalytics /> },
       { name: "Google Tag Manager", icon: <SiGoogletagmanager /> },
       { name: "Search Console", icon: <SiGoogle /> },
-      { name: "Data Analysis", icon: <SiGoogleanalytics /> },
+      { name: "Análisis de datos", icon: <SiGoogleanalytics /> },
     ],
   },
   {
     id: "frontend",
-    name: "Frontend & Tools",
-    color: "#a5b4fc", // Índigo pastel
+    name: "Frontend y Herramientas",
+    color: "#a5b4fc",
     iconColor: "#2962FF",
     icon: <SiReact />,
     technologies: [
@@ -123,26 +123,17 @@ export default function Technologies() {
   const [openAccordion, setOpenAccordion] = useState<string | null>(
     "wordpress",
   );
-
-  // Siempre mostrar acordeón en mobile, carousel en desktop
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-
-      // En mobile, abrir la primera categoría por defecto
-      if (mobile && !openAccordion) {
-        setOpenAccordion("wordpress");
-      }
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
-
     return () => window.removeEventListener("resize", checkMobile);
-  }, [openAccordion]);
+  }, []);
 
   const toggleAccordion = (id: string) => {
     setOpenAccordion(openAccordion === id ? null : id);
@@ -157,7 +148,7 @@ export default function Technologies() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Mi Stack Tecnológico
+        Mi stack tecnológico
       </motion.h2>
 
       <motion.p
@@ -168,13 +159,12 @@ export default function Technologies() {
         viewport={{ once: true }}
       >
         Especializado en WordPress, Elementor, diseño y optimización de
-        performance
+        rendimiento
       </motion.p>
 
-      {/* DESKTOP: Selector y Carousel */}
+      {/* DESKTOP */}
       {!isMobile && (
         <>
-          {/* Selector de categorías */}
           <div className={styles.categorySelector}>
             {techCategories.map((category, index) => (
               <button
@@ -190,7 +180,6 @@ export default function Technologies() {
             ))}
           </div>
 
-          {/* Carousel Desktop */}
           <div className={styles.carouselContainer}>
             <motion.div
               className={styles.carousel}
@@ -203,11 +192,7 @@ export default function Technologies() {
                 (tech, index) => (
                   <motion.div
                     key={index}
-                    className={`${styles.techItem} ${
-                      techCategories[activeCategory].name === "Diseño & Edición"
-                        ? styles.designGridItem
-                        : ""
-                    }`}
+                    className={styles.techItem}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -216,12 +201,7 @@ export default function Technologies() {
                     }}
                   >
                     <div
-                      className={`${styles.techIcon} ${
-                        techCategories[activeCategory].name ===
-                        "Diseño & Edición"
-                          ? styles.designIcon
-                          : ""
-                      }`}
+                      className={styles.techIcon}
                       style={{
                         color: techCategories[activeCategory].iconColor,
                       }}
@@ -237,7 +217,7 @@ export default function Technologies() {
         </>
       )}
 
-      {/* MOBILE: Solo Acordeón */}
+      {/* MOBILE */}
       {isMobile && (
         <div className={styles.mobileAccordion}>
           {techCategories.map((category) => (
@@ -246,9 +226,7 @@ export default function Technologies() {
               className={`${styles.accordionItem} ${
                 openAccordion === category.id ? styles.open : ""
               }`}
-              style={{
-                borderColor: category.color,
-              }}
+              style={{ borderColor: category.color }}
             >
               <div
                 className={styles.accordionHeader}
@@ -266,7 +244,6 @@ export default function Technologies() {
                 <FaChevronDown
                   className={styles.accordionIcon}
                   style={{
-                    color: "#718096",
                     transform:
                       openAccordion === category.id
                         ? "rotate(180deg)"
@@ -281,21 +258,11 @@ export default function Technologies() {
                   {category.technologies.map((tech, index) => (
                     <div
                       key={index}
-                      className={`${styles.accordionTechItem} ${
-                        category.name === "Diseño & Edición"
-                          ? styles.designGridItem
-                          : ""
-                      }`}
-                      style={{
-                        borderColor: category.color,
-                      }}
+                      className={styles.accordionTechItem}
+                      style={{ borderColor: category.color }}
                     >
                       <div
-                        className={`${styles.accordionTechIcon} ${
-                          category.name === "Diseño & Edición"
-                            ? styles.designIcon
-                            : ""
-                        }`}
+                        className={styles.accordionTechIcon}
                         style={{ color: category.iconColor }}
                       >
                         {tech.icon}
