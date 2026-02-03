@@ -1,8 +1,8 @@
-/* Tecnologias.module.css - Tema Pastel Elegante */
+/* Tecnologias.module.css - Versión simplificada */
 
 .technologies {
   padding: 5rem 1.5rem;
-  background: linear-gradient(180deg, #5b98f4 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #fafcff 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  color: #000000;
+  color: #1a202c;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
@@ -37,7 +37,7 @@
 
 .subtitle {
   text-align: center;
-  color: #000000c5;
+  color: #718096;
   max-width: 600px;
   margin: 0 auto 3.5rem;
   font-size: 1.125rem;
@@ -49,18 +49,46 @@
   .title {
     font-size: 3rem;
   }
+
+  .subtitle {
+    margin-bottom: 3rem;
+  }
 }
 
-/* Category Selector */
+/* ===== DESKTOP STYLES ===== */
 .categorySelector {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  display: none;
+}
+
+.carouselContainer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .categorySelector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .carouselContainer {
+    display: block;
+    margin-bottom: 4rem;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 .categoryButton {
@@ -83,13 +111,13 @@
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(147, 197, 253, 0.4);
   transform: translateY(-2px);
-  color: #000000;
+  color: #2d3748;
 }
 
 .categoryButton.active {
-  background: rgba(211, 224, 239, 0.619);
+  background: rgba(147, 197, 253, 0.15);
   border-color: rgba(147, 197, 253, 0.5);
-  color: #1c599e;
+  color: #2d6bb0;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(147, 197, 253, 0.1);
 }
@@ -98,28 +126,7 @@
   font-size: 1.1rem;
 }
 
-/* Carousel (Desktop) */
-.carouselContainer {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .carouselContainer {
-    display: block;
-    margin-bottom: 4rem;
-  }
-
-  .carousel {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-
-/* Tech Item (Desktop) */
+/* Tech Item Desktop */
 .techItem {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.7);
@@ -159,71 +166,84 @@
   line-height: 1.4;
 }
 
-/* Tech Grid (Mobile & Fallback) */
-.techGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+/* ===== MOBILE ACCORDION ===== */
+.mobileAccordion {
+  display: block;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
-  .techGrid {
-    grid-template-columns: repeat(2, 1fr);
+@media (min-width: 768px) {
+  .mobileAccordion {
+    display: none !important;
   }
 }
 
-@media (min-width: 1024px) {
-  .techGrid {
-    display: none;
-  }
-}
-
-/* Category Section */
-.categorySection {
+.accordionItem {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(226, 232, 240, 0.6);
-  border-radius: 18px;
-  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  overflow: hidden;
   transition: all 0.3s ease;
   backdrop-filter: blur(8px);
 }
 
-.categorySection:hover {
+.accordionItem.open {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(147, 197, 253, 0.4);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
-.categoryTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+.accordionHeader {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background: rgba(147, 197, 253, 0.05);
+}
+
+.accordionTitle {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
 }
 
-.categoryTitleIcon {
-  font-size: 1.5rem;
+.accordionIcon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
 }
 
-/* Category Grid */
-.categoryGrid {
+.accordionItem.open .accordionIcon {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordionItem.open .accordionContent {
+  max-height: 1000px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.accordionGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  padding-top: 1rem;
 }
 
-@media (max-width: 480px) {
-  .categoryGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Grid Item */
-.gridItem {
+.accordionTechItem {
   padding: 1.25rem 1rem;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(226, 232, 240, 0.5);
@@ -232,14 +252,14 @@
   transition: all 0.25s ease;
 }
 
-.gridItem:hover {
+.accordionTechItem:hover {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(147, 197, 253, 0.4);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 
-.gridIcon {
+.accordionTechIcon {
   font-size: 2rem;
   margin-bottom: 0.75rem;
   color: #4a5568;
@@ -250,14 +270,14 @@
   justify-content: center;
 }
 
-.gridName {
+.accordionTechName {
   font-size: 0.9rem;
   font-weight: 500;
   color: #2d3748;
   line-height: 1.4;
 }
 
-/* Special design tools styling */
+/* Special design styling */
 .designGridItem {
   position: relative;
   overflow: hidden;
@@ -275,5 +295,5 @@
 }
 
 .designIcon {
-  color: #7c3aed !important; /* Violeta especial para diseño */
+  color: #7c3aed !important;
 }

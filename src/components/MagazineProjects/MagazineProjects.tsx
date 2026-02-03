@@ -29,6 +29,27 @@ const projects: Project[] = [
 
   {
     id: 1,
+    title: "Luxury Transport",
+    description:
+      "Plataforma WordPress para empresa de transporte ejecutivo y turístico de alta gama. Implementación de formularios de reserva personalizados, sistema de cotización en tiempo real y diseño mobile-first optimizado para conversión. Integración con WhatsApp Business para atención inmediata.",
+    technologies: [
+      "WordPress",
+      "Elementor Pro",
+      "Contact Form 7",
+      "Integración WhatsApp",
+      "Diseño Mobile-First",
+      "Optimización de Performance",
+      "Seguridad WordPress",
+    ],
+    video:
+      "https://res.cloudinary.com/diefdex1h/video/upload/v1770136979/TLA_xebjc9.mp4",
+    images: [
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136974/Screenshot_2026-02-03_134208_m6socw.png",
+      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136976/Screenshot_2026-02-03_134134_nva04a.png",
+    ],
+  },
+  {
+    id: 2,
     title: "Simma Wines",
     description:
       "Sitio corporativo completo para bodega de vinos, desarrollado en WordPress con Elementor Pro. Implementación de sistema de reservas para catas, galerías de productos interactivas y optimización SEO avanzada. Diseño elegante que refleja la identidad premium de la marca.",
@@ -47,27 +68,6 @@ const projects: Project[] = [
       "https://res.cloudinary.com/diefdex1h/image/upload/v1757365373/Screenshot_2025-09-08_180208_uhyixq.png",
       "https://res.cloudinary.com/diefdex1h/image/upload/v1757365373/Screenshot_2025-09-08_180217_wjqhqv.png",
       "https://res.cloudinary.com/diefdex1h/image/upload/v1757365372/Screenshot_2025-09-08_180228_vrrdpo.png",
-    ],
-  },
-  {
-    id: 2,
-    title: "Luxury Transport",
-    description:
-      "Plataforma WordPress para empresa de transporte ejecutivo y turístico de alta gama. Implementación de formularios de reserva personalizados, sistema de cotización en tiempo real y diseño mobile-first optimizado para conversión. Integración con WhatsApp Business para atención inmediata.",
-    technologies: [
-      "WordPress",
-      "Elementor Pro",
-      "Contact Form 7",
-      "Integración WhatsApp",
-      "Diseño Mobile-First",
-      "Optimización de Performance",
-      "Seguridad WordPress",
-    ],
-    video:
-      "https://res.cloudinary.com/diefdex1h/video/upload/v1770136979/TLA_xebjc9.mp4",
-    images: [
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136974/Screenshot_2026-02-03_134208_m6socw.png",
-      "https://res.cloudinary.com/diefdex1h/image/upload/v1770136976/Screenshot_2026-02-03_134134_nva04a.png",
     ],
   },
   {

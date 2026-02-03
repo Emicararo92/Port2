@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import styles from "../../styles/tecnologias.module.css";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   SiWordpress,
   SiElementor,
@@ -23,11 +23,12 @@ import {
   SiCanva,
   SiObsstudio,
 } from "react-icons/si";
-import { FaCut, FaPalette, FaVideo } from "react-icons/fa";
+import { FaCut, FaPalette, FaVideo, FaChevronDown } from "react-icons/fa";
 
 // Categorías con colores pastel
 const techCategories = [
   {
+    id: "wordpress",
     name: "WordPress",
     color: "#93c5fd", // Azul pastel
     iconColor: "#21759B",
@@ -42,6 +43,7 @@ const techCategories = [
     ],
   },
   {
+    id: "elementor",
     name: "Elementor",
     color: "#c4b5fd", // Lila pastel
     iconColor: "#92003B",
@@ -56,6 +58,7 @@ const techCategories = [
     ],
   },
   {
+    id: "seo",
     name: "SEO & Performance",
     color: "#86efac", // Verde menta pastel
     iconColor: "#00C853",
@@ -69,6 +72,7 @@ const techCategories = [
     ],
   },
   {
+    id: "diseno",
     name: "Diseño & Edición",
     color: "#f9a8d4", // Rosa pastel
     iconColor: "#7c3aed",
@@ -83,6 +87,7 @@ const techCategories = [
     ],
   },
   {
+    id: "analitica",
     name: "Analítica",
     color: "#fdba74", // Durazno pastel
     iconColor: "#FF6F00",
@@ -95,6 +100,7 @@ const techCategories = [
     ],
   },
   {
+    id: "frontend",
     name: "Frontend & Tools",
     color: "#a5b4fc", // Índigo pastel
     iconColor: "#2962FF",
@@ -113,15 +119,34 @@ const techCategories = [
 ];
 
 export default function Technologies() {
-  const [isMobile, setIsMobile] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(
+    "wordpress",
+  );
+
+  // Siempre mostrar acordeón en mobile, carousel en desktop
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+
+      // En mobile, abrir la primera categoría por defecto
+      if (mobile && !openAccordion) {
+        setOpenAccordion("wordpress");
+      }
+    };
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
+
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  }, [openAccordion]);
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordion(openAccordion === id ? null : id);
+  };
 
   return (
     <section className={styles.technologies} id="tecnologia">
@@ -146,126 +171,146 @@ export default function Technologies() {
         performance
       </motion.p>
 
-      {/* Selector de categorías */}
-      <div className={styles.categorySelector}>
-        {techCategories.map((category, index) => (
-          <button
-            key={index}
-            className={`${styles.categoryButton} ${
-              activeCategory === index ? styles.active : ""
-            }`}
-            onClick={() => setActiveCategory(index)}
-            data-category={category.name.toLowerCase().replace(/[ &]/g, "-")}
-          >
-            <span className={styles.categoryIcon}>{category.icon}</span>
-            {category.name}
-          </button>
-        ))}
-      </div>
-
-      {/* Vista Desktop (Carousel) */}
+      {/* DESKTOP: Selector y Carousel */}
       {!isMobile && (
-        <div className={styles.carouselContainer}>
-          <motion.div
-            className={styles.carousel}
-            key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            {techCategories[activeCategory].technologies.map((tech, index) => (
-              <motion.div
-                key={index}
-                className={`${styles.techItem} ${
-                  techCategories[activeCategory].name === "Diseño & Edición"
-                    ? styles.designGridItem
-                    : ""
+        <>
+          {/* Selector de categorías */}
+          <div className={styles.categorySelector}>
+            {techCategories.map((category, index) => (
+              <button
+                key={category.id}
+                className={`${styles.categoryButton} ${
+                  activeCategory === index ? styles.active : ""
                 }`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                style={{
-                  borderColor: techCategories[activeCategory].color,
-                }}
+                onClick={() => setActiveCategory(index)}
               >
-                <div
-                  className={`${styles.techIcon} ${
-                    techCategories[activeCategory].name === "Diseño & Edición"
-                      ? styles.designIcon
-                      : ""
-                  }`}
-                  style={{ color: techCategories[activeCategory].iconColor }}
-                >
-                  {tech.icon}
-                </div>
-                <div className={styles.techName}>{tech.name}</div>
-              </motion.div>
+                <span className={styles.categoryIcon}>{category.icon}</span>
+                {category.name}
+              </button>
             ))}
-          </motion.div>
-        </div>
-      )}
+          </div>
 
-      {/* Vista Mobile (Grid completo) */}
-      <motion.div
-        className={styles.techGrid}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        {techCategories.map((category, categoryIndex) => (
-          <motion.div
-            key={categoryIndex}
-            className={styles.categorySection}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
-            viewport={{ once: true }}
-            style={{
-              borderColor: category.color,
-            }}
-          >
-            <h3
-              className={styles.categoryTitle}
-              style={{ color: category.color }}
+          {/* Carousel Desktop */}
+          <div className={styles.carouselContainer}>
+            <motion.div
+              className={styles.carousel}
+              key={activeCategory}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              <span className={styles.categoryTitleIcon}>{category.icon}</span>
-              {category.name}
-            </h3>
-            <div className={styles.categoryGrid}>
-              {category.technologies.map((tech, techIndex) => (
-                <motion.div
-                  key={techIndex}
-                  className={`${styles.gridItem} ${
-                    category.name === "Diseño & Edición"
-                      ? styles.designGridItem
-                      : ""
-                  }`}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: techIndex * 0.05 }}
-                  viewport={{ once: true }}
-                  style={{
-                    borderColor: category.color,
-                  }}
-                >
-                  <div
-                    className={`${styles.gridIcon} ${
-                      category.name === "Diseño & Edición"
-                        ? styles.designIcon
+              {techCategories[activeCategory].technologies.map(
+                (tech, index) => (
+                  <motion.div
+                    key={index}
+                    className={`${styles.techItem} ${
+                      techCategories[activeCategory].name === "Diseño & Edición"
+                        ? styles.designGridItem
                         : ""
                     }`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    style={{
+                      borderColor: techCategories[activeCategory].color,
+                    }}
+                  >
+                    <div
+                      className={`${styles.techIcon} ${
+                        techCategories[activeCategory].name ===
+                        "Diseño & Edición"
+                          ? styles.designIcon
+                          : ""
+                      }`}
+                      style={{
+                        color: techCategories[activeCategory].iconColor,
+                      }}
+                    >
+                      {tech.icon}
+                    </div>
+                    <div className={styles.techName}>{tech.name}</div>
+                  </motion.div>
+                ),
+              )}
+            </motion.div>
+          </div>
+        </>
+      )}
+
+      {/* MOBILE: Solo Acordeón */}
+      {isMobile && (
+        <div className={styles.mobileAccordion}>
+          {techCategories.map((category) => (
+            <div
+              key={category.id}
+              className={`${styles.accordionItem} ${
+                openAccordion === category.id ? styles.open : ""
+              }`}
+              style={{
+                borderColor: category.color,
+              }}
+            >
+              <div
+                className={styles.accordionHeader}
+                onClick={() => toggleAccordion(category.id)}
+              >
+                <div className={styles.accordionTitle}>
+                  <span
+                    className={styles.accordionIcon}
                     style={{ color: category.iconColor }}
                   >
-                    {tech.icon}
-                  </div>
-                  <div className={styles.gridName}>{tech.name}</div>
-                </motion.div>
-              ))}
+                    {category.icon}
+                  </span>
+                  {category.name}
+                </div>
+                <FaChevronDown
+                  className={styles.accordionIcon}
+                  style={{
+                    color: "#718096",
+                    transform:
+                      openAccordion === category.id
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                    transition: "transform 0.3s ease",
+                  }}
+                />
+              </div>
+
+              <div className={styles.accordionContent}>
+                <div className={styles.accordionGrid}>
+                  {category.technologies.map((tech, index) => (
+                    <div
+                      key={index}
+                      className={`${styles.accordionTechItem} ${
+                        category.name === "Diseño & Edición"
+                          ? styles.designGridItem
+                          : ""
+                      }`}
+                      style={{
+                        borderColor: category.color,
+                      }}
+                    >
+                      <div
+                        className={`${styles.accordionTechIcon} ${
+                          category.name === "Diseño & Edición"
+                            ? styles.designIcon
+                            : ""
+                        }`}
+                        style={{ color: category.iconColor }}
+                      >
+                        {tech.icon}
+                      </div>
+                      <div className={styles.accordionTechName}>
+                        {tech.name}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
