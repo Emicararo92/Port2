@@ -46,7 +46,7 @@ export default function AboutMe() {
               , con
               <span className={styles.accent}>
                 {" "}
-                3 años de experiencia   
+                3 años de experiencia  
               </span>
                creando y optimizando sitios web profesionales.
             </p>
