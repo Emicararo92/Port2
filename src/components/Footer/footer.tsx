@@ -59,7 +59,7 @@ export default function Footer() {
       {/* Bottom */}
       <div className={styles.bottom}>
         <p>
-          © {new Date().getFullYear()} Emiliano Cararo · WordPress & Elementor
+          © Emiliano Cararo · WordPress & Elementor
         </p>
       </div>
     </footer>
