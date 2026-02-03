@@ -114,7 +114,7 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Paso Urbano",
+    title: "Paso Urbano (Proximamente)",
     description:
       "E-commerce WordPress para marca emergente de zapatillas urbanas. Implementación de catálogo visual atractivo, sistema de tallas y guía de medidas, y optimización para motores de búsqueda. Preparación para futura integración de pagos online y logística de envíos.",
     technologies: [
@@ -135,7 +135,7 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Valle del Rahue",
+    title: "Valle del Rahue (Proximamente)",
     description:
       "E-commerce WordPress para marca de jugos naturales y alimentos saludables. Enfoque en storytelling de marca, experiencia de compra intuitiva y preparación para integración de pagos online. Diseño que comunica frescura y naturalidad del producto.",
     technologies: [

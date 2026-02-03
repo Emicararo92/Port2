@@ -1,0 +1,240 @@
+/* Footer.module.css - Tema Pastel Elegante */
+
+.footer {
+  padding: 4rem 1.5rem 2rem;
+  background: linear-gradient(180deg, #5b98f4 0%, #ffffff 100%);
+  border-top: 1px solid rgba(226, 232, 240, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(147, 197, 253, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+/* Branding */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.logo {
+  border-radius: 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(147, 197, 253, 0.1));
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.firstName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #181d26;
+  letter-spacing: -0.01em;
+}
+
+.lastName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #181d26;
+  letter-spacing: 0.01em;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #2e343f;
+  max-width: 400px;
+}
+
+.description strong {
+  color: #2d3748;
+  font-weight: 600;
+  background: linear-gradient(90deg, #036ee8c8, #054af8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    justify-content: start;
+  }
+}
+
+.navLink {
+  color: #262b32;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  transition: all 0.2s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.navLink:hover {
+  color: #343943;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #93c5fd;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* CTA */
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactButton {
+  background: rgba(51, 113, 185, 0.437);
+  color: #1a202a;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  box-shadow: 0 4px 12px rgba(147, 197, 253, 0.08);
+}
+
+.contactButton:hover {
+  background: rgba(147, 197, 253, 0.2);
+  border-color: rgba(109, 109, 109, 0.686);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 197, 253, 0.12);
+}
+
+/* Bottom Section */
+.bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  text-align: center;
+}
+
+.bottom p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+/* Decorative Elements */
+.footer::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.04) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.25rem 1.5rem;
+  }
+
+  .container {
+    gap: 2.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .logoWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .name {
+    flex-direction: row;
+    gap: 0.25rem;
+  }
+
+  .contactButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
